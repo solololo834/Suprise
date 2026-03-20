@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>suprise</title>
+   <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            overflow: hidden; 
+            height: 100vh;
+        }
+
+        .heart {
+          margin-top: -130px;
+            position: absolute;
+            color: #ff69b4;
+            opacity: 0.5;
+            user-select: none;
+            pointer-events: none;
+            animation: moveUp 5s linear forwards;
+        }
+
+        @keyframes moveUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        #a {
+          font-size: 50px;
+          font-family: 'Ms Madi';
+          color: #CF8181;
+          position: relative;
+          left: 200px;
+        }
+    </style>
+</head>
+<body>
+<h3 id="a">i love you</h3>
+<script>
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        
+
+        heart.innerHTML = '❤';
+        
+
+        heart.style.left = Math.random() * 100 + 'vw';
+        
+
+        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+        
+        const duration = Math.random() * 4 + 3;
+        heart.style.animationDuration = duration + 's';
+        
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+    }
+
+
+    setInterval(createHeart, 10);
+</script>
+
+</body>
+</html>
+
