@@ -2,72 +2,73 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>suprise</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-   <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
+    <title>Surprise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #fff0f5; /* Pink sangat muda */
             overflow: hidden; 
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .heart {
-          width: 200px;
-         margin-top: -130px;
             position: absolute;
             color: #ff69b4;
-            opacity: 0.5;
+            opacity: 0.5; /* Sesuai permintaan */
             user-select: none;
             pointer-events: none;
+            z-index: 1;
             animation: moveUp 5s linear forwards;
         }
 
         @keyframes moveUp {
             0% {
-                transform: translateY(100vh) scale(0.5);
+                transform: translateY(110vh) scale(0.5) rotate(0deg);
                 opacity: 0;
             }
-            10% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.5;
-            }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
             100% {
-                transform: translateY(-10vh) scale(1.2);
+                transform: translateY(-20vh) scale(1.5) rotate(20deg);
                 opacity: 0;
             }
         }
         
         #a {
-          font-size: 50px;
-          font-family: 'Ms Madi';
-          color: #CF8181;
-          position: relative;
-          left: 500px;
+            font-size: 60px;
+            font-family: 'Ms Madi', cursive;
+            color: #CF8181;
+            text-align: center;
+            z-index: 10; /* Biar teks di atas hati */
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
+
 <h3 id="a">i love you</h3>
+
 <script>
     function createHeart() {
         const heart = document.createElement('div');
         heart.classList.add('heart');
         
-
-        heart.innerHTML = '❤';
+        // Menggunakan simbol hati tipis agar lebih fancy
+        heart.innerHTML = '♡'; 
         
-
+        // Posisi acak horizontal
         heart.style.left = Math.random() * 100 + 'vw';
         
-
-        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+        // Ukuran acak agar terlihat "cover" seluruh area
+        heart.style.fontSize = Math.random() * 30 + 20 + 'px';
         
-        const duration = Math.random() * 4 + 3;
+        const duration = Math.random() * 3 + 4;
         heart.style.animationDuration = duration + 's';
         
         document.body.appendChild(heart);
@@ -77,8 +78,8 @@
         }, duration * 1000);
     }
 
-
-    setInterval(createHeart, 10);
+    // Interval diubah ke 150ms agar tetap ramai tapi tidak lag/beban
+    setInterval(createHeart, 150);
 </script>
 
 </body>
